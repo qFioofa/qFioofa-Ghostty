@@ -1,0 +1,16 @@
+font-family = JetBrainsMonoNL Nerd Font
+font-size = 14
+theme = yugen-ash.conf
+font-feature = -dlig
+
+working-directory = ~/Desktop
+
+window-width = 180
+window-height = 45
+
+scrollback-limit = 10000000
+
+keybind = ctrl+a>h=goto_split:left
+keybind = ctrl+a>l=goto_split:right
+keybind = ctrl+a>k=goto_split:up
+keybind = ctrl+a>j=goto_split:down
