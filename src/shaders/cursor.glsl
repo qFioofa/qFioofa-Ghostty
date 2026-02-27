@@ -2,7 +2,7 @@ const float CURSOR_ALPHA = 0.1;
 const float CURSOR_THICKNESS = 0.0005;
 const vec3 CURSOR_COLOR = vec3(0.662);
 
-const float TRAIL_DURATION = 0.05;
+const float TRAIL_DURATION = 0.015;
 const float TRAIL_ALPHA = 0.2;
 const float TRAIL_THICKNESS = 0.004;
 const vec3 TRAIL_COLOR = vec3(0.5);
