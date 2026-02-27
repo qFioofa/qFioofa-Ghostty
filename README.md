@@ -6,6 +6,8 @@ Personal Ghostty terminal config.
 
 - Fast terminal immulater written in `zig`
 - Build in fonts
+- Custom shader support
+    - Cursor animation
 
 # Install
 
