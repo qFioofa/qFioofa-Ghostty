@@ -43,14 +43,21 @@ Ctrl+Shift+,
 
 # Nix
 
-Ships a `flake.nix` exposing a Home Manager module (`homeManagerModules.default`).
-It symlinks `./src` to `~/.config/ghostty` via `xdg.configFile`, so the config can
-be managed declaratively instead of running `deploy_config`.
+Ships a `flake.nix` exposing a Home Manager module (`homeManagerModules.default`,
+defined in `nix/hm-module.nix`). It symlinks `./src` to `~/.config/ghostty` via
+`xdg.configFile`, so the config can be managed declaratively instead of running
+`deploy.sh`.
 
 ```nix
 # flake inputs
-qFioofa-ghostty.url = "github:qFioofa/qFioofa-Ghostty";
+qfioofa-ghostty.url = "github:qFioofa/qFioofa-Ghostty";
 
 # home configuration
-imports = [ qFioofa-ghostty.homeManagerModules.default ];
+imports = [ inputs.qfioofa-ghostty.homeManagerModules.default ];
+programs.qfioofa-ghostty.enable = true;
 ```
+
+Set `programs.qfioofa-ghostty.package = pkgs.ghostty;` to also install Ghostty
+itself; leave it unset (the default) to manage only the config and get Ghostty
+elsewhere. After changes, `home-manager switch` and reload Ghostty
+(`Ctrl+Shift+,`).

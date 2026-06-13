@@ -3,8 +3,6 @@ font-size = 14
 theme = yugen-ash.conf
 font-feature = -dlig
 
-working-directory = ~/Desktop
-
 window-width = 180
 window-height = 45
 
