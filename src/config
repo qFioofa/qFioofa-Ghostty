@@ -10,6 +10,32 @@ scrollback-limit = 10000000
 
 custom-shader = shaders/cursor.glsl
 
+# Cursor — steady, so it doesn't fight the custom shader
+#
+cursor-style = block
+cursor-style-blink = false
+
+# Splits — dim the inactive ones
+#
+shade-unfocused-splits = true
+unfocused-split-opacity = 0.7
+
+# Mouse & selection
+#
+mouse-hide-while-typing = true
+copy-on-select = clipboard
+clipboard-paste-protection = true
+
+# Behavior
+#
+confirm-close-surface = true
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+link-url = true
+window-save-state = always
+window-padding-x = 8
+window-padding-y = 6
+
 keybind = ctrl+a>h=goto_split:left
 keybind = ctrl+a>l=goto_split:right
 keybind = ctrl+a>k=goto_split:up

@@ -11,19 +11,21 @@ Personal Ghostty terminal config.
 
 # Install
 
-With `git clone`
-
 ```bash
 git clone git@github.com:qFioofa/qFioofa-Ghostty.git
 cd ./qFioofa-Ghostty
-bash deploy_config -r
+bash scripts/deploy.sh -b
 ```
 
-One command
+The deploy script copies `./src` into `~/.config/ghostty`. Flags:
 
-```bash
+| Flag | Description |
+| --- | --- |
+| `-b`, `--backup` | Back up an existing config to `~/.config/ghostty.backup` first |
+| `-r`, `--remove` | Delete the existing config before installing |
+| `-h`, `--help` | Show usage |
 
-```
+If a config already exists, you must pass `-b` or `-r` (the script refuses to overwrite silently).
 
 # Clean
 
@@ -32,6 +34,23 @@ Delete config
 ```bash
 rm -rf ~/.config/ghostty/
 ```
+
+# What's configured
+
+- **Font** — JetBrainsMono Nerd Font @ 14, ligatures off (`-dlig`)
+- **Theme** — `yugen-ash` (bundled in `src/themes/`)
+- **Cursor** — steady block with a custom animation shader (`src/shaders/cursor.glsl`)
+- **Splits** — inactive splits dimmed; navigate with the `Ctrl+a` prefix:
+
+  | Keybind | Action |
+  | --- | --- |
+  | `Ctrl+a` then `h` | Focus split left |
+  | `Ctrl+a` then `l` | Focus split right |
+  | `Ctrl+a` then `k` | Focus split up |
+  | `Ctrl+a` then `j` | Focus split down |
+
+- **Quality of life** — copy-on-select, hide mouse while typing, paste protection,
+  shell integration (cursor / sudo / title), clickable URLs, and saved window state
 
 # Extra
 
