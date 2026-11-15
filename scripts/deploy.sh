@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -e
 
@@ -20,10 +20,23 @@ BACKUP=false
 
 while [[ $# -gt 0 ]]; do
     case $1 in
-        -r|--remove) REMOVE=true; shift ;;
-        -b|--backup) BACKUP=true; shift ;;
-        -h|--help) show_help; exit 0 ;;
-        *) echo "Неизвестный параметр: $1"; show_help; exit 1 ;;
+    -r | --remove)
+        REMOVE=true
+        shift
+        ;;
+    -b | --backup)
+        BACKUP=true
+        shift
+        ;;
+    -h | --help)
+        show_help
+        exit 0
+        ;;
+    *)
+        echo "Неизвестный параметр: $1"
+        show_help
+        exit 1
+        ;;
     esac
 done
 
