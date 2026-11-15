@@ -17,7 +17,6 @@ cursor-style-blink = false
 
 # Splits — dim the inactive ones
 #
-shade-unfocused-splits = true
 unfocused-split-opacity = 0.7
 
 # Mouse & selection
@@ -33,8 +32,8 @@ shell-integration = detect
 shell-integration-features = cursor,sudo,title
 link-url = true
 window-save-state = always
-window-padding-x = 8
-window-padding-y = 6
+window-padding-x = 0
+adjust-cell-width = 1
 
 keybind = ctrl+a>h=goto_split:left
 keybind = ctrl+a>l=goto_split:right

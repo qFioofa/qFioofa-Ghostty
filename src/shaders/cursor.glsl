@@ -26,6 +26,11 @@ vec2 norm(vec2 value, float isPosition) {
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     // Get background texture
     fragColor = texture(iChannel0, fragCoord.xy / iResolution.xy);
+
+    // While the cursor is hidden, iCurrentCursor/iPreviousCursor keep their
+    // last values, so drawing them would leave a ghost cursor behind.
+    if (iCursorVisible == 0) return;
+
     vec2 vu = norm(fragCoord, 1.);
     
     // Normalize cursor position and size
