@@ -1,11 +1,9 @@
 const float CURSOR_ALPHA = 0.1;
 const float CURSOR_THICKNESS = 0.0005;
-const vec3 CURSOR_COLOR = vec3(0.662);
 
 const float TRAIL_DURATION = 0.015;
 const float TRAIL_ALPHA = 0.2;
 const float TRAIL_THICKNESS = 0.004;
-const vec3 TRAIL_COLOR = vec3(0.5);
 
 float getSdfRectangle(in vec2 p, in vec2 xy, in vec2 b) {
     vec2 d = abs(p - xy) - b;
@@ -31,6 +29,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     // last values, so drawing them would leave a ghost cursor behind.
     if (iCursorVisible == 0) return;
 
+    vec3 cursorColor = iCurrentCursorColor.rgb;
+    vec3 trailColor = mix(iCurrentCursorColor.rgb, iForegroundColor, 0.5);
+
     vec2 vu = norm(fragCoord, 1.);
     
     // Normalize cursor position and size
@@ -47,7 +48,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     
     // Apply cursor with transparency
     float cursorMask = step(sdfCurrentCursor, CURSOR_THICKNESS);
-    fragColor.rgb = mix(fragColor.rgb, CURSOR_COLOR, cursorMask * CURSOR_ALPHA);
+    fragColor.rgb = mix(fragColor.rgb, cursorColor, cursorMask * CURSOR_ALPHA);
     
     // Calculate trail progress
     float progress = clamp((iTime - iTimeCursorChange) / TRAIL_DURATION, 0.0, 1.0);
@@ -70,6 +71,6 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
         float trailMask = step(trailDistance, TRAIL_THICKNESS * easedProgress);
         
         // Apply trail with transparency
-        fragColor.rgb = mix(fragColor.rgb, TRAIL_COLOR, trailMask * TRAIL_ALPHA * easedProgress);
+        fragColor.rgb = mix(fragColor.rgb, trailColor, trailMask * TRAIL_ALPHA * easedProgress);
     }
 }

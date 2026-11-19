@@ -37,20 +37,33 @@ rm -rf ~/.config/ghostty/
 
 # What's configured
 
-- **Font** — JetBrainsMono Nerd Font @ 14, ligatures off (`-dlig`)
+- **Font** — JetBrainsMono Nerd Font @ 14, ligatures off (`-calt`, `-liga`, `-dlig`)
 - **Theme** — `yugen-ash` (bundled in `src/themes/`)
 - **Cursor** — steady block with a custom animation shader (`src/shaders/cursor.glsl`)
-- **Splits** — inactive splits dimmed; navigate with the `Ctrl+a` prefix:
+- **Prefix** — `Ctrl+a` is a tmux-style prefix; inactive splits are dimmed.
 
   | Keybind | Action |
   | --- | --- |
-  | `Ctrl+a` then `h` | Focus split left |
-  | `Ctrl+a` then `l` | Focus split right |
-  | `Ctrl+a` then `k` | Focus split up |
-  | `Ctrl+a` then `j` | Focus split down |
+  | `Ctrl+a` then `h` / `l` | Focus split left / right |
+  | `Ctrl+a` then `k` / `j` | Focus split up / down |
+  | `Ctrl+a` then `\|` / `-` | New split right / down |
+  | `Ctrl+a` then arrows | Resize split |
+  | `Ctrl+a` then `z` | Toggle split zoom |
+  | `Ctrl+a` then `c` / `x` | New tab / close surface |
+  | `Ctrl+a` then `n` / `p` | Next / previous tab |
+  | `Ctrl+a` then `1`…`9` | Go to tab |
+  | `Ctrl+a` then `s` | Search |
+  | `Ctrl+a` then `r` | Reload config |
+  | `Ctrl+a` then `Ctrl+a` | Send literal `Ctrl+A` |
 
-- **Quality of life** — copy-on-select, hide mouse while typing, paste protection,
-  shell integration (cursor / sudo / title), clickable URLs, and saved window state
+  The Russian layout mirrors focus navigation with `р` / `д` / `л` / `о`.
+
+- **Quality of life** — copy-on-select, clear selection on copy, hide mouse while
+  typing, paste protection, shell integration (cursor / sudo / title), clickable
+  URLs, 95% background opacity, +2px cell height, and saved window state
+
+- **Cursor shader** — takes its colors from the active theme instead of hardcoded
+  values
 
 # Extra
 
@@ -59,6 +72,8 @@ Reload Ghostty config live in the terminal
 ```bash
 Ctrl+Shift+,
 ```
+
+The default `Ctrl+,` open-config binding is disabled.
 
 # Nix
 

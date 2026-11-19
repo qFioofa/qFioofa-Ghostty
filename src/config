@@ -1,7 +1,7 @@
 font-family = JetBrainsMonoNL Nerd Font
 font-size = 14
 theme = yugen-ash.conf
-font-feature = -dlig
+font-feature = -calt,-liga,-dlig
 
 window-width = 180
 window-height = 45
@@ -24,6 +24,7 @@ unfocused-split-opacity = 0.7
 mouse-hide-while-typing = true
 copy-on-select = clipboard
 clipboard-paste-protection = true
+selection-clear-on-copy = true
 
 # Behavior
 #
@@ -33,7 +34,9 @@ shell-integration-features = cursor,sudo,title
 link-url = true
 window-save-state = always
 window-padding-x = 0
+background-opacity = 0.95
 adjust-cell-width = 1
+adjust-cell-height = 2
 
 keybind = ctrl+a>h=goto_split:left
 keybind = ctrl+a>l=goto_split:right
@@ -46,3 +49,39 @@ keybind = ctrl+a>р=goto_split:left
 keybind = ctrl+a>д=goto_split:right
 keybind = ctrl+a>л=goto_split:up
 keybind = ctrl+a>о=goto_split:down
+
+# Tabs
+#
+keybind = ctrl+a>c=new_tab
+keybind = ctrl+a>x=close_surface
+keybind = ctrl+a>n=next_tab
+keybind = ctrl+a>p=previous_tab
+keybind = ctrl+a>1=goto_tab:1
+keybind = ctrl+a>2=goto_tab:2
+keybind = ctrl+a>3=goto_tab:3
+keybind = ctrl+a>4=goto_tab:4
+keybind = ctrl+a>5=goto_tab:5
+keybind = ctrl+a>6=goto_tab:6
+keybind = ctrl+a>7=goto_tab:7
+keybind = ctrl+a>8=goto_tab:8
+keybind = ctrl+a>9=goto_tab:9
+
+# Splits
+#
+keybind = ctrl+a>|=new_split:right
+keybind = ctrl+a>-=new_split:down
+keybind = ctrl+a>z=toggle_split_zoom
+keybind = ctrl+a>left=resize_split:left,5
+keybind = ctrl+a>right=resize_split:right,5
+keybind = ctrl+a>up=resize_split:up,5
+keybind = ctrl+a>down=resize_split:down,5
+
+# Misc
+#
+keybind = ctrl+a>s=start_search
+keybind = ctrl+a>r=reload_config
+keybind = ctrl+a>ctrl+a=text:\x01
+
+# Remove the default Ctrl+, open_config binding
+#
+keybind = ctrl+,=unbind
