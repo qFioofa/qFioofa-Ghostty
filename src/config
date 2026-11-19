@@ -34,7 +34,7 @@ shell-integration-features = cursor,sudo,title
 link-url = true
 window-save-state = always
 window-padding-x = 0
-background-opacity = 0.95
+background-opacity = 1
 adjust-cell-width = 1
 adjust-cell-height = 2
 
